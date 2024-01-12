@@ -1,0 +1,230 @@
+<html>
+<head> 
+    <link rel="stylesheet" href="style.css">
+    <body>
+   
+   <div class="t1"><em>LERS Classification System</em></div> 
+    <div class="p1">
+        For classification of unseen cases, the LERS system uses a “bucket brigade<br>
+algorithm” (Booker, Goldberg, & Holland, 1990; Holland, Holyoak, & Nisbett, 1986),<br>
+extended to use partial matching of rules and cases. The decision to which class a case<br>
+belongs is made on the basis of two parameters: strength and support. They are defined<br>
+as follows: <em>Strength</em> is the total number of cases correctly classified by the rule during<br>
+training. The second parameter, <em>support</em>, is defined as the sum of scores of all matching<br>
+rules from the class. As follows from experiments, partial matching is a valuable<br>
+mechanism when complete matching fails (Grzymala-Busse, 1994). In the LERS classi-<br>
+        fication system, the user may use 16 strategies for classification. However, as a result<br>
+of experiments, again, it can be shown that the most successful strategy is based on<br>
+strength, support, and partial matching while ignoring specificity (number of conditions<br>
+        in a rule) (Grzymala-Busse & Zou, 1998).<br></div>
+        <div class="p2">
+        LERS equips rules with numbers characterizing quality of rules. Thus, like VPRSM,<br>
+LERS goes beyond the original rough set theory. The generalizations of the original<br>
+rough set theory represented by VPRSM and LERS are different. The prime concern of<br>
+VPRSM is forming decision tables, while LERS was designed to form rule sets. However,<br>
+all numbers related with rules and defined on the basis of VPRSM may be computed from<br>
+numbers allocated by LERS to each rule. On the other hand, the LERS classification<br>
+system uses ideas that are foreign to VPRSM, such as specificity, support, and partial<br>
+matching. Thus, the two generalizations are independent and neither can be reduced to<br>
+the other.<br></div>
+<h4>Related Work</h4>            
+ <div class="p3">
+    The basics of the theory are summarized in Pawlak’s book (Pawlak, 1991). He also<br>
+introduced novel theories of rough functions and rough relations, which directly apply<br>
+to the creation of approximate functional and relational models from data (Pawlak, 1996).<br>
+Since the introduction of the original RST, several extensions of the original model were<br>
+proposed (Greco, Matarazzo, Slowinski, & Stephanowski, 2000; Ziarko, 1993). In<br>
+particular, VPRSM was first published in Ziarko (1993) and was further investigated by<br>
+Beynon (2000), Kryszkiewicz (1994), and others, and served as a basis of a new approach<br>
+to inductive logic programming (Mahesvari, Siromoney, Mehata, & Inoue, 2001) . The<br>
+initial notion of a data-acquired decision table, also called an information system, is<br>
+credited to Pawlak (1991). The probabilistic decision tables were introduced by Ziarko<br>
+(1998b). The LERS system was first described in Grzymala-Busse, 1992). Its most<br>
+important algorithm, LEM2, was also presented in Chan and Grzymala-Busse(1994).<br>
+Initial versions of LERS were presented by Budihardjo, Grzymala-Busse , and Woolery<br>
+(1991), and Grzymala-Busse (1997, 1998).<br></div>      
+            
+ <div class="p4">  
+     There exists an extensive body of literature on rough set theory applications to<br>
+knowledge discovery and data mining. A comprehensive review of the state art is<br>
+available in Polkowski and Skowron (1998). A number of sources reported experiments<br>
+with using rough set theory for pattern recognition, including speech recognition,<br>
+handwriting recognition, and music fragment classification (Kostek, 1998; Plonka &<br>
+Mrozek, 1995; Zhao, 1993). The rough set theory was first applied to trainable control<br>
+by Mrozek (1986) when modeling control behavior of cement mill operators. Important<br>
+
+      </div>
+        <br><br>
+        <hr><br><br>
+        <div class="p1">
+        applications of LERS were published in Freeman, Grzymala-Busse , Riffel, and Schroeder<br>
+(2001) , Grzymala-Busse et al. (2001), Grzymala-Busse and Gunn (1995), Grzymala-Busse<br>
+and Woolery (1994), Gunn and Grzymala-Busse (1994), Loupe, Freeman, Grzymala-Busse,<br>
+and Schroeder (2001), Moradi, Grzymala-Busse, and Roberts (1995), and Woolery,<br>
+Grzymala-Busse, Summers, and Budihardjio(1991). Some other rough set theory-based<br>
+control applications are reported in Peters, Skowron and Suraj (1999).<br>
+        </div>
+        <h2><center>ROUGH SET THEORY</center></h2>
+     <div>
+        Rough set theory was created as a tool to handle inconsistent data. This section<br>
+presents the fundamentals of the original rough set theory. The complete description<br>
+of the theory may be found in Pawlak (1991) (see also Grzymala-Busse, 1995).<br>
+        </div>
+        <h2>Global Coverings</h2>
+        <div>We are assuming that the input data set is in a form of a table. Rows of the table<br>
+are called <em>cases (or examples)</em>. Columns are labeled by <em>attributes</em> and a <em>decision</em>. An<br>
+example of such a table is presented in Table 1.<br></div>
+        <div>
+        Table 1 depicts a simplified data base showing eight homeowners (cases) applying<br>
+to a bank for a loan to buy a car. Any such table defines an information function ρ that<br>
+maps the set of all ordered pairs (case, attribute) into the set of attribute values. For<br>
+example, ρ <em>(c1, Home)</em> is equal to <em>expensive</em>.
+        </div>
+        <em><p>Table 1: Consistent data set</p></em>
+        <center><img src="WhatsApp%20Image%202024-01-12%20at%2021.22.37_1d8790e6.jpg"></center>
+        <br><br>
+        
+    <hr><br><br>
+        <div>
+        One of the fundamental ideas of rough set theory is the relation of the set of all cases<br>
+implied by a subset P of the set A of all attributes, called an indiscernibility relation, and<br>
+denoted by IND(P). For any two cases c and c', the relation <em>indiscernibility</em> is defined<br>
+as follows:</div>
+        <div><br>
+        (c, c') ∈ IND(P) if and only if ρ (c, a) = ρ (c', a) for all a ∈ P.</div><br>
+        <div>
+        Obviously, IND(P) is an equivalence relation, so it may be represented by the<br>
+partition on U induced by IND(P). This partition will be denoted by U/IND(P). Two cases<br>
+c and c' belong to the same set of the partition U/IND(P) if and only if (c, c') ∈ IND(P).<br>
+For example,
+        </div><br>
+        
+        <div>U/IND({Home}) = {{c1, c3, c8}, {c2, c5, c6, c7}, {c4}}</div><br>and<br><br>
+        <div>U/IND({Home, Boat}) = {{c1, c8}, {c2, c5}, {c3}, {c4}, {c6, c7}}.</div>
+        <div>
+        Sets belonging to the partition U/IND(P) are called <em>P-elementary sets or blocks</em>.<br>
+Elements <em>c1</em> and <em>c3</em> belong to the same <em>{Home}</em>-elementary set (or block) of U/ND<em>({Home})</em><br>
+because the value of variable <em>Home</em> is the same for both <em>c1</em> and <em>c3</em>.<br>
+            
+In a special case where set <em>P</em> contains only one variable, the decision, usually<br>
+denoted by <em>d</em>, the corresponding sets that constitute U/IND(P) are called <em>concepts</em>. In<br>
+Table 1, we distinguish two concepts: <em>{c1, c3, c5, c7}</em>, and <em>{c2, c4, c6, c8}</em>. The former<br>
+concept consists of all accepted applicants, the latter concept consists of all rejected.<br>
+            
+The basic problem is how to determine a subset <em>P</em> of the set <em>A</em> describes all concepts.<br>
+In different words, our problem is whether a subset <em>P</em> of <em>A</em> is sufficient to distinguish all<br>
+concepts. For example, the single attribute <em>{Home}</em> is not sufficient, since <em>Home</em> has the<br>
+same value <em>expensive</em> for <em>c1</em> and <em>c8</em>, yet <em>c1</em> and <em>c1</em> belong to two different concepts.<br>
+Moreover, a subset <em>{Home, Boat}</em> is not sufficient either, since both have the same<br>
+values for <em>c1</em> and <em>c8 (expensive, no)</em>, and <em>c1</em> and <em>c2</em>, as observed before, belong to two<br>
+different concepts. On the other hand, the set of all attributes: <em>{Home, Boat, Credit_Card,<br>
+Age}</em> is sufficient, since values of all four attributes are unique for corresponding<br>
+concepts. The value vector <em>(expensive, no, yes, old)</em> of attribute vector (Home, Boat,<br>
+Credit_Card, Age) characterize only one case, c1, that belongs to the concept approved<br>
+loan applications. We say that <em>{d}</em> depends on the subset <em>P = {Home, Boat, Credit_Card,<br>
+Age}</em>. The necessary and sufficient condition for <em>{d}</em> to depend on <em>P</em> is<br>
+        
+        </div><br>
+        <div>
+        The sign “≤” in the above expression concerns partitions. For partitions π and τ<br>
+on <i>U</i>, π ≤ τ if and only if for each block <em>B</em> of π there exists a block <em>B'</em> of τ such that <em>B</em><br>
+⊆ <em>B'</em>. In other words, <em>{d}</em> depends on <em>P</em> if and only if every concept defined by <em>{d}</em> is<br>
+the union of some <em>P</em>-elementary sets (or blocks of <i>U</i>/IND(<em>P</em>)).<br>
+In our example,
+        </div><br><br>
+        <hr><br><br>
+        <div>
+        <em>U/IND({Loan_Application}) = {{c1, c3, c5, c7}, {c2, c4, c6, c8}},<br>
+U/IND({Home, Age}) = {{c1, c3}, {c2, c6}, {c4}, {c5}, {c7}, {c8}},</em><br><br>
+            
+        </div>
+        so
+        <br><br>
+        <div>
+        <em>U/IND({Home, Age} ≤ U/IND({Loan_Application}</em>
+        </div>
+        <div>
+        or, <i>{Loan_Application</i> depends on <i>{Home, Age}</i>. It is not difficult to check that <i>U/</i><br>
+IND<i>({Home, Age} ≤ U/IND({Loan_Application}</i>: every block of <i>U/</i>IND<em>({Home, Age})</em><br>
+is a subset of corresponding block from <i>U/</i>IND<i>({Loan_Application})</i>.<br>
+The minimal subset <em>P</em> such that <em>{d}</em> depends on <em>P</em> is called a <em>global covering of {d}</em>.<br>
+The global covering is also called <em>relative reduct</em> (Pawlak, 1991). In the example in Table<br>
+1, there exist precisely two global coverings of <em>Loan_Application: {Home, Age}</em> and<br>
+<em>{Home, Credit_Card, Boat}</em>. Algorithms for finding the set of all global coverings was<br>
+published in Grzymala-Busse (1991)<br>
+        </div>
+        <h3>Algorithm for Finding the Set of All Global Coverings</h3>
+        <div>The aim of the algorithm is to find the set <em>C</em> of all global coverings of <em>{d}</em>. The<br>
+cardinality of the set <em>X</em> is denoted <em>|X|</em>. Let k be a positive integer. The set of all subsets<br>
+of the same cardinality <em>k</em> of the set <em>A</em> is denoted <em>Pk</em><br>
+, i.e.,<em> Pk
+ = {{xi1, xi2,..., xik} | xi1, xi2,...,<br>
+xik ∈ A}</em>.</div>
+        
+        <div>
+        <img src="img.jpg">      
+</div>
+        <div>Time complexity of the algorithm for finding the set of all coverings of R in S is<br>
+exponential.</div>
+        
+        <h3>Local Coverings</h3>
+        <div>
+        In the definition of global covering, all involved attributes and decision are<br>
+considered globally, i.e., for all cases. Here we will introduce a local covering, defined<br>
+        </div><br><br>
+        <hr><br><br>
+        <div>by variable-value pairs. Let <i>x</i> be a variable (an attribute or a decision), and let <i>v</i> be a value<br>
+of <i>x</i>. The block of a variable-value pair <em>(x, v)</em>, denoted [<em>(x, v)</em>], is the set of all elements<br>
+of the universe U that for variable <i>x</i> have value <i>v</i>. Thus, the concept is a block of [(d, w)]<br>
+for some value w of decision d. For example, in Table 1, the block of <em>(Home, expensive)</em><br>
+is <em>{c1, c3, c8}</em>.<br>
+Let <em>B</em> be a subset of the universe <em>U</em>. Let <em>T</em> be a non-empty set of attribute-value pairs,<br>
+where all involved attributes are different. The block of <em>T</em>, denoted [<em>T</em>], is defined as<br>
+        </div>
+        
+        <div class=img3>
+        <img src="img1.jpg">
+             </div>
+        <div>
+        Let B be the set <em>{c1, c3, c5, c7}</em>, that is, B is the block of (Loan_Application,<br>
+approved}. In the example from Table 1, let <em>X</em> be the set <em>{(Home, expensive), (Boat, no)}</em>.<br>
+The block <em>[X]</em> of <em>X</em> is equal to
+        
+        </div><br>
+        <div>
+        <em>[(Home, expensive)] ∩ [(Boat, no)] = {c1, c3, c8} ∩ {c1, c6, c7, c8} =<br>
+{c1, c8} ⊄ {c1, c3, c5, c7} = B.</em>
+        </div><br>
+        <div>
+        Thus <em>B = {c1, c3, c5, c7}</em> does not depend on <em>X</em>. On the other hand, for <em>Y</em> equal to
+<em>{(Home, expensive), (Age, Old)},</em> the block <em>[Y]</em> of <em>Y</em> is equal to
+        </div><br>
+        
+        <div><em>[(Home, expensive)] ∩ [(Age, Old] = {c1, c3, c8} ∩ {c1, c2, c3, c6} =
+{c1, c3} ⊆ {c1, c3, c5, c7} = B</em></div><br>
+        <div>so<em> B = {c1, c3, c5, c7} depends on {(Home, expensive), (Age, Old)}.</em></div><br>
+        <div>We say that <em>B depends</em> on a set <em>T</em> of attribute-value pairs if and only if <em>[T] ⊆ B</em>. Set<br>
+<em>T</em> is a minimal complex of <em>B</em> if and only if <em>B</em> depends on <em>T</em> and no proper subset <em>T'</em> of <em>T</em><br>
+exists such that <em>B</em> depends on <em>T'</em>.</div><br>
+        <div>The set <em>Y = {(Home, expensive), (Age, Old)}</em> is a minimal complex of <em>B = {c1, c3, c5,<br>
+c7}</em>, since <em>B</em> does not depend on any subset of <em>Y</em>, because</div><br>
+        
+        <div>
+        <em>[(Home, expensive)] ⊄ B</em><br>
+        </div><br>
+        and
+        <br><br>
+        <div>
+        <em>[(Age, Old)] ⊄ B.</em>
+        </div>
+        <div>However, there exist more minimal complexes of <em>B</em>. For example, <em>Z = {(Home,
+Middle), (Credit_Card, yes)}</em> is another minimal complex of <em>B</em>, because</div><br>
+        <div><em>[Y] = [{(Home, Middle), (Credit_Card, yes)}] =<br>
+[(Home, Middle)] ∩ [(Credit_Card, yes)] = {c2, c5, c6, c7} ∩ {c1, c4, c5, c7} =<br>
+{c5, c7} ⊆ B,<br>
+[{(Home, Middle)] ⊄ B, and [(Credit_Card, yes)}] ⊄ B.</em></div><br><br>
+    </body>
+   
+    
+    
+    </head></html>
